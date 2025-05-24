@@ -1,0 +1,10 @@
+{
+  "build": {
+    "command": "npm install && npm run build",
+    "cwd": "frontend"
+  },
+  "deploy": {
+    "command": "npm install && npm start",
+    "cwd": "backend"
+  }
+}

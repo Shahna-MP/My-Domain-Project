@@ -1,0 +1,15 @@
+# Ignore node modules anywhere
+node_modules/
+
+# Ignore env files everywhere
+.env
+frontend/.env
+backend/.env
+
+# Ignore build output for frontend
+frontend/build/
+
+# Ignore MongoDB dump folders
+dump/
+domainsdb/
+
