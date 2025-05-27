@@ -8,15 +8,19 @@ function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  // Get API base URL from environment variable
+  const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `${API_BASE}/api/auth/login`,
+        { email, password },
+        { withCredentials: true } // optional if you're using cookies
+      );
       localStorage.setItem("token", res.data.token);
       navigate("/domains");
     } catch (err) {
