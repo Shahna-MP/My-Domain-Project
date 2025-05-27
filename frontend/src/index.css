@@ -1,0 +1,12 @@
+.form-control:focus {
+  border-color: #198754 !important; /* Bootstrap green */
+  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25); /* green shadow */
+}
+
+.uniform-row th,
+.uniform-row td {
+  min-height: 60px;
+  height: 60px;
+  vertical-align: middle;
+  text-align: center;
+}
