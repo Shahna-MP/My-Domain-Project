@@ -1,4 +1,4 @@
-require("dotenv").config();              // Load env vars first
+require("dotenv").config(); // Load env vars first
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -7,8 +7,13 @@ const cors = require("cors");
 const app = express();
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
-app.use(cors());                          // Enable CORS for all routes
-app.use(express.json());                  // Parse JSON bodies
+app.use(
+  cors({
+    origin: "https://my-domain-project-three.vercel.app",
+    credentials: false,
+  })
+); 
+app.use(express.json()); // Parse JSON bodies
 
 // ─── MongoDB Connection ───────────────────────────────────────────────────────
 mongoose
@@ -21,10 +26,10 @@ mongoose
 
 // ─── API Routes ────────────────────────────────────────────────────────────────
 const domainRoutes = require("./routes/DomainRoutes");
-const authRoutes   = require("./routes/AuthRoutes");
+const authRoutes = require("./routes/AuthRoutes");
 
 app.use("/api/domains", domainRoutes);
-app.use("/api/auth",    authRoutes);
+app.use("/api/auth", authRoutes);
 
 // ─── Error Handling ────────────────────────────────────────────────────────────
 // 404 handler

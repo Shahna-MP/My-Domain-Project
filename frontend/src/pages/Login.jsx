@@ -18,7 +18,6 @@ function Login() {
       const res = await axios.post(
         `${API_BASE}/api/auth/login`,
         { email, password },
-        { withCredentials: true } // optional if you're using cookies
       );
       localStorage.setItem("token", res.data.token);
       navigate("/domains");
